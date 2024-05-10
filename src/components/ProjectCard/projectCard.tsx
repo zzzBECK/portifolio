@@ -72,7 +72,7 @@ export function ProjectCard({ className, title, description, type, badge, ...pro
                 rotateZ,
             }}
         >
-            <Card className={cn("w-[340px] h-[580px]", className)} {...props}>
+            <Card className={cn("w-[340px] h-[600px]", className)} {...props}>
                 <CardHeader className="h-[13em]">
                     <Badge className="w-fit mb-2 gap-2">
                         <PackageOpen />
@@ -83,8 +83,8 @@ export function ProjectCard({ className, title, description, type, badge, ...pro
                 </CardHeader>
                 <CardContent className="flex flex-col h-[16em]">
 
-                    <div className="flex flex-wrap justify-between gap-y-2">
-                        {badge && <Badge className="w-fit mb-2 gap-2 h-[3em]">
+                    <div className="flex flex-wrap justify-between gap-y-2 h-[3em]">
+                        {badge && <Badge className="w-fit mb-2 gap-2">
                             <badge.icon />
                             React
                         </Badge>
