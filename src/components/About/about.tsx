@@ -10,15 +10,14 @@ export function About() {
         const cardRect = domTarget.current.getBoundingClientRect();
         const centery = (cardRect.top + cardRect.bottom) / 2;
         return -(y - centery) / 55;
-    }
+    };
 
     const calcY = (x: number) => {
         if (!domTarget.current) return;
         const cardRect = domTarget.current.getBoundingClientRect();
         const centerx = (cardRect.left + cardRect.right) / 2;
         return (x - centerx) / 55;
-    }
-
+    };
 
     const [{ x, y, rotateX, rotateY, rotateZ, scale, zoom }, api] = useSpring(
         () => ({
@@ -48,10 +47,12 @@ export function About() {
         { domTarget, eventOptions: { passive: false } },
     );
 
-
     return (
-        <section className="flex h-[80vh] w-full pl-52 pr-52 mt-48" id='Sobre'>
-            <div className="w-1/3">
+        <section
+            className="flex flex-col-reverse md:flex-row h-auto w-full px-4 md:px-12 lg:px-24 xl:px-52 mt-24 md:mt-48 gap-8 md:gap-16"
+            id="Sobre"
+        >
+            <div className="flex justify-center md:justify-start md:w-1/3">
                 <animated.div
                     ref={domTarget}
                     style={{
@@ -64,20 +65,29 @@ export function About() {
                         rotateZ,
                     }}
                 >
-                    <img className="rounded-xl" src="foto.png" />
+                    <img className="rounded-xl w-full md:w-[320px] lg:w-[400px]" src="foto.png" />
                 </animated.div>
             </div>
 
-            <div className="flex flex-col w-2/3 h-fit gap-6">
-                <h1 className="text-6xl">Sobre Mim</h1>
+            <div className="flex flex-col md:w-2/3 h-fit gap-6">
+                <h1 className="text-center md:text-start text-3xl md:text-4xl lg:text-6xl">Sobre Mim</h1>
                 <div className="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
                 </div>
                 <div className="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
+                    quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
                 </div>
             </div>
-
         </section>
-    )
+    );
 }
