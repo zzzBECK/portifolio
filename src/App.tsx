@@ -2,6 +2,7 @@ import { About } from "./components/About/about";
 import { Header } from "./components/Header/header";
 import { Introduction } from "./components/Introduction/introduction";
 import { ParticleLight } from "./components/Particles/particleLight";
+import { Projects } from "./components/Projects/projects";
 import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Header />
         <Introduction />
         <About />
+        <Projects />
         <ParticleLight />
       </main>
     </ThemeProvider>

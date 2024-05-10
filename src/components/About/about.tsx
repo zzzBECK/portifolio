@@ -1,6 +1,8 @@
 import { animated, to, useSpring } from "@react-spring/web";
+import { UserRoundSearch } from "lucide-react";
 import { useRef } from "react";
 import { useGesture } from "react-use-gesture";
+import { Badge } from "../ui/badge";
 
 export function About() {
     const domTarget = useRef<HTMLDivElement>(null);
@@ -69,8 +71,11 @@ export function About() {
                 </animated.div>
             </div>
 
-            <div className="flex flex-col md:w-2/3 h-fit gap-6">
-                <h1 className="text-center md:text-start text-3xl md:text-4xl lg:text-6xl">Sobre Mim</h1>
+            <div className="flex flex-col items-center md:items-start md:w-2/3 h-fit gap-6">
+                <Badge className="w-fit gap-2 text-5xl rounded-xl p-4 flex text-center items-center">
+                    <UserRoundSearch size={50} />
+                    Sobre mim
+                </Badge>
                 <div className="text-justify">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
                     quod animi id, eum nihil porro sunt adipisci totam nobis esse nam, a voluptatem eligendi explicabo!
