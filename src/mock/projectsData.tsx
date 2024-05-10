@@ -21,7 +21,7 @@ export const projectsData: Project[] = [
     description:
       "Desenvolvimento de um WebSite Institucional para a empresa Brasequip, utilizando React.js/Vite.js com Typescript e Figma para prototipação, com a metodologia RAD",
     badge: {
-      text: 'React',
+      text: 'Vite',
       icon: Atom
     }
   },

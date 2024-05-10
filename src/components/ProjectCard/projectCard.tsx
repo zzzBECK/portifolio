@@ -86,7 +86,7 @@ export function ProjectCard({ className, title, description, type, badge, ...pro
                     <div className="flex flex-wrap justify-between gap-y-2 h-[3em]">
                         {badge && <Badge className="w-fit mb-2 gap-2">
                             <badge.icon />
-                            React
+                            {badge.text}
                         </Badge>
                         }
                     </div>
