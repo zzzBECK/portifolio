@@ -67,7 +67,7 @@ export function About() {
                         rotateZ,
                     }}
                 >
-                    <img className="rounded-xl w-full md:w-[320px] lg:w-[400px]" src="foto.png" />
+                    <img className="rounded-xl w-full md:w-[320px] lg:w-[400px] shadow-2xl shadow-gray-700" src="foto.png" />
                 </animated.div>
             </div>
 
