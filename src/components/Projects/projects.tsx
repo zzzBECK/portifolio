@@ -14,11 +14,18 @@ export function Projects() {
                 Projetos
             </Badge>
             <div className="flex flex-wrap justify-center xl:justify-between mt-10 gap-4 w-full">
-
                 {projectsData.map((project) => (
-                    <ProjectCard key={project.title} title={project.title} description={project.description} type={project.type} badge={project?.badge} />
+                    <ProjectCard
+                        key={project.title}
+                        title={project.title}
+                        description={project.description}
+                        type={project.type}
+                        badges={project?.badges}
+                        repositoryLink={project.repositoryLink}
+                        projectLink={project.projectLink}
+                        image={project.image}
+                    />
                 ))}
-
             </div>
         </section>
     );
