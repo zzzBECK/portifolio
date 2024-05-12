@@ -1,34 +1,34 @@
-import { PackageOpen } from "lucide-react";
-import { ProjectCard } from "../ProjectCard/projectCard";
-import { Badge } from "../ui/badge";
 import { projectsData } from "@/mock/projectsData";
-import { useEffect, useState } from "react";
 import { GitProject } from "@/types/git-project";
+import Autoplay from "embla-carousel-autoplay";
+import { PackageOpen } from "lucide-react";
+import { useState } from "react";
+import { ProjectCard } from "../ProjectCard/projectCard";
+import { RepositoryCard } from "../RepositoryCard/repositoryCard";
+import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
 
 const url = "https://api.github.com/users/zzzBECK/repos";
 
 export function Projects() {
     const [type, setType] = useState<'default' | 'repos'>('default');
     const [projects, setProject] = useState<GitProject[]>();
+    const [isLoading, setLoading] = useState(true);
 
-    console.log(projects);
-
-    useEffect(() => {
-        const fetchProject = async () => {
-            try {
-                const resp = await fetch(url);
-                const projects = await resp.json();
-                setProject(projects);
-
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchProject();
-    }, []);
+    const fetchRepositories = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch(url);
+            const repos = await response.json();
+            setProject(repos);
+        } catch (error) {
+            console.error("Failed to fetch repositories:", error);
+        }
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000)
+    };
 
     return (
         <section
@@ -40,9 +40,13 @@ export function Projects() {
                     <PackageOpen size={50} />
                     Projetos
                 </Badge>
-                <div className="flex w-fit gap-3 mt-10 md:mt-0">
-                    <Button variant={type === 'default' ? 'default' : 'secondary'} onClick={() => setType('default')}>Projetos principais</Button>
-                    <Button variant={type === 'repos' ? 'default' : 'secondary'} onClick={() => setType('repos')}>Todos os repositórios</Button>
+                <div className="flex w-full md:w-fit gap-3 mt-10 md:mt-0 items-end">
+                    <Button className="w-1/2 md:w-fit" variant={type === 'default' ? 'default' : 'secondary'} onClick={() => setType('default')}>Projetos principais</Button>
+                    <Button className="w-1/2 md:w-fit" variant={type === 'repos' ? 'default' : 'secondary'} onClick={() => {
+                        setType('repos'); if (!projects) { // This checks if projects are not already fetched
+                            fetchRepositories();
+                        }
+                    }}>Todos os repositórios</Button>
                 </div>
             </div>
             {type === 'default' &&
@@ -62,16 +66,16 @@ export function Projects() {
                 </div>
             }
             {type === 'repos' &&
-                <Carousel className="w-full my-10">
-                    <CarouselContent className="-ml-1">
+                <Carousel className="w-full my-10" plugins={[
+                    Autoplay({
+                        delay: isLoading ? 3000 : 2000,
+                    }),
+                ]}>
+                    <CarouselContent className="ml-1">
                         {projects && projects.map((project, index) => (
                             <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
-                                    <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                            <span className="text-2xl font-semibold">{project.name}</span>
-                                        </CardContent>
-                                    </Card>
+                                    <RepositoryCard project={project} loading={isLoading} />
                                 </div>
                             </CarouselItem>
                         ))}

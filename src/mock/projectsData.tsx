@@ -1,6 +1,6 @@
 import { FaDocker, FaNodeJs, FaReact } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
-import { SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
+import { SiDart, SiFlutter, SiPostgresql, SiStyledcomponents } from "react-icons/si";
 import { TbBrandFigma, TbBrandJavascript, TbBrandTypescript } from "react-icons/tb";
 
 
@@ -40,6 +40,10 @@ export const projectsData: Project[] = [
         text: "Figma",
         icon: TbBrandFigma,
       },
+      {
+        text: "Styled",
+        icon: SiStyledcomponents,
+      }
     ],
   },
   {
