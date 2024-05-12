@@ -20,6 +20,7 @@
     "@react-spring/web": "^9.7.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.0.4",
     "framer-motion": "^11.1.9",
     "i18next": "^23.11.4",
     "i18next-browser-languagedetector": "^7.2.1",
