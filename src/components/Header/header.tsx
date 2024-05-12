@@ -1,5 +1,5 @@
-import BrazilFlag from "@/assets/brazilFlag";
-import UsaFlag from "@/assets/usaFlag";
+import { BrazilFlag } from "@/assets/brazilFlag";
+import { UsaFlag } from "@/assets/usaFlag";
 import i18next from "i18next";
 import { LucideLinkedin } from "lucide-react";
 import { useEffect, useState } from "react";

@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-const BrazilFlag = (props: SVGProps<SVGSVGElement>) => (
+export const BrazilFlag = (props: SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2000 1400"
@@ -24,4 +24,3 @@ const BrazilFlag = (props: SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-export default BrazilFlag;
