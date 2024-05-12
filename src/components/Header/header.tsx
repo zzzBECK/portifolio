@@ -1,12 +1,37 @@
-import { Github, LinkedinIcon, LucideLinkedin } from "lucide-react";
+import BrazilFlag from "@/assets/brazilFlag";
+import UsaFlag from "@/assets/usaFlag";
+import i18next from "i18next";
+import { LucideLinkedin } from "lucide-react";
+import { useEffect, useState } from "react";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
-
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 export function Header() {
+    const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
+
+    useEffect(() => {
+        const handleLanguageChange = (lng: string) => {
+            setCurrentLanguage(lng);
+        };
+
+        i18next.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18next.off('languageChanged', handleLanguageChange);
+        };
+    }, []);
+
+    const changeLanguage = (lang: string) => {
+        i18next.changeLanguage(lang);
+    };
 
     return (
-
         <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-fit">
             <div className="container flex h-14 max-w-screen-2xl items-center">
                 <div className="mr-4 hidden md:flex">
@@ -115,7 +140,7 @@ export function Header() {
                             rel="noreferrer"
                             href="https://github.com/zzzBECK"
                         >
-                            <Button variant="ghost" size="icon" >
+                            <Button variant="ghost" size="icon">
                                 <svg viewBox="0 0 438.549 438.549" className="h-4 w-4">
                                     <path
                                         fill="currentColor"
@@ -129,13 +154,38 @@ export function Header() {
                             rel="noreferrer"
                             href="https://www.linkedin.com/in/alexandre-de-santana-beck-b7336420b/"
                         >
-                            <Button variant="ghost" size="icon" >
+                            <Button variant="ghost" size="icon">
                                 <LucideLinkedin size={20} />
                             </Button>
                         </a>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                    <div className="flex justify-center items-center w-full scale-75 transition-all">
+                                        {currentLanguage === "en" ? <UsaFlag /> : <BrazilFlag />}
+                                    </div>
+                                    <span className="sr-only">Toggle language</span>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="max-w-[8em]" align="end">
+                                <DropdownMenuItem onClick={() => changeLanguage("pt")} className="gap-2">
+                                    <div className="flex justify-center items-center w-1/3 transition-all">
+                                        <BrazilFlag />
+                                    </div>
+                                    Português
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => changeLanguage("en")} className="gap-2">
+                                    <div className="flex justify-center items-center w-1/3 transition-all">
+                                        <UsaFlag />
+                                    </div>
+                                    English
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                         <ModeToggle />
                     </nav>
                 </div>
             </div>
-        </header>)
+        </header>
+    );
 }

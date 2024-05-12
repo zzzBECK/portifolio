@@ -1,11 +1,14 @@
 import { animated, to, useSpring } from "@react-spring/web";
 import { UserRoundSearch } from "lucide-react";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useGesture } from "react-use-gesture";
 import { Badge } from "../ui/badge";
 
 export function About() {
     const domTarget = useRef<HTMLDivElement>(null);
+    const { t } = useTranslation();
+
 
     const calcX = (y: number) => {
         if (!domTarget.current) return;
@@ -74,7 +77,7 @@ export function About() {
             <div className="flex flex-col items-center md:items-start md:w-2/3 h-fit gap-6">
                 <Badge className="w-fit gap-2 text-5xl rounded-xl p-4 flex text-center items-center">
                     <UserRoundSearch size={50} />
-                    Sobre mim
+                    {t("aboutMe")}
                 </Badge>
                 <div className="text-justify">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aliquid ex corrupti, consectetur ea
