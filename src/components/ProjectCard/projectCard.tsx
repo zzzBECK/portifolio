@@ -120,11 +120,11 @@ export function ProjectCard({
                         </div>
 
                         <div className="w-full mt-4">
-                            <AspectRatio ratio={16 / 9} className="max-h-[165px] justify-center">
+                            <AspectRatio ratio={16 / 9} className="max-h-[165px] min-h-[165px] justify-center">
                                 <img
                                     src={image}
                                     alt="Image"
-                                    className="rounded-md object-cover max-h-[165px] w-full"
+                                    className="rounded-md object-cover max-h-[165px] min-h-[165px] w-full"
                                 />
                             </AspectRatio>
                         </div>
