@@ -74,7 +74,7 @@ export function Projects() {
                     <CarouselContent className="ml-1">
                         {projects && projects.map((project, index) => (
                             <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1">
+                                <div className="p-1 h-full">
                                     <RepositoryCard project={project} loading={isLoading} />
                                 </div>
                             </CarouselItem>

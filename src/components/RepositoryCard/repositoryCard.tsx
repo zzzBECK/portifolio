@@ -20,6 +20,7 @@ export function RepositoryCard({ project, loading }: RepositoryCardProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring" }}
             layout
+            className="max-h-[434px]"
         >
             <Card>
                 <CardHeader className="pb-0 min-h-[46px]">
@@ -28,7 +29,7 @@ export function RepositoryCard({ project, loading }: RepositoryCardProps) {
                 <CardContent className="flex flex-col items-center justify-center p-6 text-justify gap-4">
                     {loading ? <Skeleton className="min-h-[50px] w-[50px] rounded-full" /> : <FaGithub size={50} className="min-h-[50px]" />}
                     {loading ? <Skeleton className="min-h-[32px] w-3/4" /> : <span className="text-2xl font-semibold min-h-[32px]">{project.name}</span>}
-                    {loading ? <Skeleton className="min-h-[82px] w-full" /> : <CardDescription className="min-h-[82px]">{project.description}</CardDescription>}
+                    {loading ? <Skeleton className="min-h-[160px] lg:min-h-[82px] w-full" /> : <CardDescription className="min-h-[160px] max-h-[160px]">{project.description}</CardDescription>}
                 </CardContent>
                 <CardFooter>
                     {loading ? <Skeleton className="w-full h-10" /> : <a className="w-full" href={project.html_url} target="_blank">
