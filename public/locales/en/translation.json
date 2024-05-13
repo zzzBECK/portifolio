@@ -1,3 +1,6 @@
 {
-  "aboutMe": "Aboute me"
+  "aboutMe": "About me",
+  "projects": "Projects",
+  "mainProjects": "Main projects",
+  "allRepositories": "All repositories"
 }

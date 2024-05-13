@@ -7,14 +7,22 @@ import { ProjectCard } from "../ProjectCard/projectCard";
 import { RepositoryCard } from "../RepositoryCard/repositoryCard";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "../ui/carousel";
+import { useTranslation } from "react-i18next";
 
 const url = "https://api.github.com/users/zzzBECK/repos";
 
 export function Projects() {
-    const [type, setType] = useState<'default' | 'repos'>('default');
+    const [type, setType] = useState<"default" | "repos">("default");
     const [projects, setProject] = useState<GitProject[]>();
     const [isLoading, setLoading] = useState(true);
+    const { t } = useTranslation();
 
     const fetchRepositories = async () => {
         setLoading(true);
@@ -27,7 +35,7 @@ export function Projects() {
         }
         setTimeout(() => {
             setLoading(false);
-        }, 2000)
+        }, 2000);
     };
 
     return (
@@ -38,18 +46,31 @@ export function Projects() {
             <div className="flex flex-col md:flex-row    w-full justify-between">
                 <Badge className="w-fit gap-2 text-5xl rounded-xl p-4 flex text-center items-center">
                     <PackageOpen size={50} />
-                    Projetos
+                    {t("projects")}
                 </Badge>
                 <div className="flex w-full md:w-fit gap-3 mt-10 md:mt-0 items-end">
-                    <Button className="w-1/2 md:w-fit" variant={type === 'default' ? 'default' : 'secondary'} onClick={() => setType('default')}>Projetos principais</Button>
-                    <Button className="w-1/2 md:w-fit" variant={type === 'repos' ? 'default' : 'secondary'} onClick={() => {
-                        setType('repos'); if (!projects) { // This checks if projects are not already fetched
-                            fetchRepositories();
-                        }
-                    }}>Todos os repositórios</Button>
+                    <Button
+                        className="w-1/2 md:w-fit"
+                        variant={type === "default" ? "default" : "secondary"}
+                        onClick={() => setType("default")}
+                    >
+                        {t("mainProjects")}
+                    </Button>
+                    <Button
+                        className="w-1/2 md:w-fit"
+                        variant={type === "repos" ? "default" : "secondary"}
+                        onClick={() => {
+                            setType("repos");
+                            if (!projects) {
+                                fetchRepositories();
+                            }
+                        }}
+                    >
+                        {t("allRepositories")}
+                    </Button>
                 </div>
             </div>
-            {type === 'default' &&
+            {type === "default" && (
                 <div className="flex flex-wrap justify-center xl:justify-between mt-10 gap-4 w-full">
                     {projectsData.map((project) => (
                         <ProjectCard
@@ -64,26 +85,33 @@ export function Projects() {
                         />
                     ))}
                 </div>
-            }
-            {type === 'repos' &&
-                <Carousel className="w-full my-10" plugins={[
-                    Autoplay({
-                        delay: isLoading ? 3000 : 2000,
-                    }),
-                ]}>
+            )}
+            {type === "repos" && (
+                <Carousel
+                    className="w-full my-10"
+                    plugins={[
+                        Autoplay({
+                            delay: isLoading ? 3000 : 2000,
+                        }),
+                    ]}
+                >
                     <CarouselContent className="ml-1">
-                        {projects && projects.map((project, index) => (
-                            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                    <RepositoryCard project={project} loading={isLoading} />
-                                </div>
-                            </CarouselItem>
-                        ))}
+                        {projects &&
+                            projects.map((project, index) => (
+                                <CarouselItem
+                                    key={index}
+                                    className="pl-1 md:basis-1/2 lg:basis-1/3"
+                                >
+                                    <div className="p-1 h-full">
+                                        <RepositoryCard project={project} loading={isLoading} />
+                                    </div>
+                                </CarouselItem>
+                            ))}
                     </CarouselContent>
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
-            }
+            )}
         </section>
     );
 }
