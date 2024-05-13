@@ -1,7 +1,8 @@
 import { GitProject } from "@/types/git-project";
 import Autoplay from "embla-carousel-autoplay";
-import { PackageOpen } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { GiCardboardBox } from "react-icons/gi";
 import { ProjectCard } from "../ProjectCard/projectCard";
 import { RepositoryCard } from "../RepositoryCard/repositoryCard";
 import { Badge } from "../ui/badge";
@@ -13,7 +14,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "../ui/carousel";
-import { useTranslation } from "react-i18next";
 import { useGetData } from "./hook/getData";
 
 const url = "https://api.github.com/users/zzzBECK/repos";
@@ -47,7 +47,7 @@ export function Projects() {
         >
             <div className="flex flex-col md:flex-row    w-full justify-between">
                 <Badge className="w-fit gap-2 text-5xl rounded-xl p-4 flex text-center items-center">
-                    <PackageOpen size={50} />
+                    <GiCardboardBox size={50} />
                     {t("projects")}
                 </Badge>
                 <div className="flex w-full md:w-fit gap-3 mt-10 md:mt-0 items-end">
