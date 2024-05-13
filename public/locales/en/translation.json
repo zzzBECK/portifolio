@@ -2,7 +2,10 @@
   "aboutMe": "About me",
   "academicProject": "Academic project",
   "allRepositories": "All repositories",
+  "close": "Close",
   "contact": "Contact",
+  "copiedEmail": "Copied email!",
+  "errorCopying": "Error copying email!",
   "freelanceProject": "Freelance project",
   "mainProjects": "Main projects",
   "projects": "Projects",
@@ -25,8 +28,6 @@
     }
   },
   "repository": "Repository",
-  "welcome": "Welcome!",
-  "copiedEmail": "Copied email!",
-  "errorCopying": "Error copying email!",
-  "close": "Close"
+  "skills": "Skills",
+  "welcome": "Welcome!"
 }

@@ -4,6 +4,7 @@ import { Header } from "./components/Header/header";
 import { Introduction } from "./components/Introduction/introduction";
 import { ParticleLight } from "./components/Particles/particleLight";
 import { Projects } from "./components/Projects/projects";
+import { Skills } from "./components/Skills/skills";
 import { ThemeProvider } from "./components/theme-provider";
 import { Toaster } from "./components/ui/sonner";
 
@@ -15,6 +16,7 @@ function App() {
         <Introduction />
         <About />
         <Projects />
+        <Skills />
         <Contact />
         <ParticleLight />
         <Toaster />
