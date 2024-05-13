@@ -1,6 +1,29 @@
 {
   "aboutMe": "About me",
-  "projects": "Projects",
+  "academicProject": "Academic project",
+  "allRepositories": "All repositories",
+  "contact": "Contact",
+  "freelanceProject": "Freelance project",
   "mainProjects": "Main projects",
-  "allRepositories": "All repositories"
+  "projects": "Projects",
+  "projectsData": {
+    "bizuDaAprovacao": {
+      "description": "First real project experience using React/Next.js, where the site was used for the 'Bizu da Aprovação' course registration by Patrulheiro Jota",
+      "title": "Bizu da Aprovação"
+    },
+    "brasequip": {
+      "description": "Development of an Institutional Website for Brasequip using React.js/Vite.js with TypeScript and Figma for prototyping, with RAD methodology",
+      "title": "Brasequip"
+    },
+    "fearAndHunger": {
+      "description": "Development of a web MMORPG by a team of 4 developers using Vite.js for the frontend, Express.js for the backend with PostgreSQL database management, and Docker",
+      "title": "Fear & Hunger"
+    },
+    "guiaUnB": {
+      "description": "Development of a mobile app in Dart with Flutter and Firebase by a team of 6 developers to inform UnB students about student rights",
+      "title": "Guia UnB"
+    }
+  },
+  "repository": "Repository",
+  "welcome": "Welcome!"
 }

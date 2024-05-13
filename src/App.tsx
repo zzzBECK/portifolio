@@ -1,4 +1,5 @@
 import { About } from "./components/About/about";
+import { Contact } from "./components/Contact/contact";
 import { Header } from "./components/Header/header";
 import { Introduction } from "./components/Introduction/introduction";
 import { ParticleLight } from "./components/Particles/particleLight";
@@ -13,6 +14,7 @@ function App() {
         <Introduction />
         <About />
         <Projects />
+        <Contact />
         <ParticleLight />
       </main>
     </ThemeProvider>

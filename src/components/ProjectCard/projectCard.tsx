@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Project } from "@/mock/projectsData";
 import { animated, to, useSpring } from "@react-spring/web";
 import { motion } from "framer-motion";
 import { Github, Link } from "lucide-react";
 import { useRef } from "react";
+import { FaUniversity } from "react-icons/fa";
 import { SiFreelancer } from "react-icons/si";
 import { useGesture } from "react-use-gesture";
 import { AspectRatio } from "../ui/aspect-ratio";
@@ -17,7 +17,8 @@ import {
     CardHeader,
     CardTitle,
 } from "../ui/card";
-import { FaUniversity } from "react-icons/fa";
+import { Project } from "@/types/project";
+import { useTranslation } from "react-i18next";
 type CardProps = React.ComponentProps<typeof Card>;
 
 export function ProjectCard({
@@ -32,6 +33,7 @@ export function ProjectCard({
     ...props
 }: CardProps & Project) {
     const domTarget = useRef<HTMLDivElement>(null);
+    const { t } = useTranslation();
 
     const calcX = (y: number) => {
         if (!domTarget.current) return;
@@ -102,7 +104,7 @@ export function ProjectCard({
                             ) : (
                                 <FaUniversity />
                             )}
-                            {type === "freelance" ? "Projeto Freelance" : "Projeto Acadêmico"}
+                            {type === "freelance" ? t("freelanceProject") : t("academicProject")}
                         </Badge>
                         <CardTitle>{title}</CardTitle>
                         <CardDescription className="text-justify">{description}</CardDescription>
@@ -133,7 +135,7 @@ export function ProjectCard({
                         {repositoryLink && (
                             <a className="w-full" href={repositoryLink} target="_blank">
                                 <Button variant='secondary' className="w-full">
-                                    <Github className="mr-2 h-4 w-4" /> Repositório
+                                    <Github className="mr-2 h-4 w-4" /> {t("repository")}
                                 </Button>
                             </a>
                         )}

@@ -1,6 +1,29 @@
 {
   "aboutMe": "Sobre mim",
-  "projects": "Projetos",
+  "academicProject": "Projeto Acadêmico",
+  "allRepositories": "Todos os repositórios",
+  "contact": "Contaco",
+  "freelanceProject": "Projeto Freelance",
   "mainProjects": "Projetos principais",
-  "allRepositories": "Todos os repositórios"
+  "projects": "Projetos",
+  "projectsData": {
+    "bizuDaAprovacao": {
+      "description": "Primeira experiência de um projeto real utilzando React/Next.js, onde o site foi utilizado para inscrição do curso 'Bizu da Aprovação' do Patrulheiro Jota",
+      "title": "Bizu da Aprovação"
+    },
+    "brasequip": {
+      "description": "Desenvolvimento de um WebSite Institucional para a empresa Brasequip, utilizando React.js/Vite.js com Typescript e Figma para prototipação, com a metodologia RAD",
+      "title": "Brasequip"
+    },
+    "fearAndHunger": {
+      "description": "Desenvolvimento de um MMORPG web, em equipe de 4 desenvolvedores, utilizando Vite.js para o front-end, Express.js para o back- end com banco de dados relacional, gerenciador PostegreSQL e Docker",
+      "title": "Fear & Hunger"
+    },
+    "guiaUnB": {
+      "description": "Desenvolvimento de um aplicativo móvel em Dart com Flutter e Firabase, em equipe de 6 desenvolvedores para informar alunos da UnB sobre direitos estudantis",
+      "title": "Guia UnB"
+    }
+  },
+  "repository": "Repositório",
+  "welcome": "Bem vindo!"
 }

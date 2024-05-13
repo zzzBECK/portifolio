@@ -5,9 +5,11 @@ import { Button } from "../ui/button";
 import { useSpring, animated, to } from "@react-spring/web";
 import { useRef } from "react";
 import { useGesture } from "react-use-gesture";
+import { useTranslation } from "react-i18next";
 
 export function Introduction() {
     const domTarget = useRef<HTMLDivElement>(null);
+    const { t } = useTranslation();
 
     const calcX = (y: number) => {
         if (!domTarget.current) return;
@@ -60,7 +62,7 @@ export function Introduction() {
             <div className="flex flex-col gap-4 md:w-1/2">
                 <Badge className="gap-3 w-fit text-xl">
                     <GemIcon size={20} />
-                    Welcome!
+                    {t("welcome")}
                 </Badge>
                 <h1 className="text-4xl md:text-5xl lg:text-7xl">Alexandre Beck</h1>
                 <h2 className="text-xl md:text-2xl lg:text-3xl">

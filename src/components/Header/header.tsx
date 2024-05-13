@@ -11,9 +11,11 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
 
 export function Header() {
     const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleLanguageChange = (lng: string) => {
@@ -72,13 +74,13 @@ export function Header() {
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
                             href="#Sobre"
                         >
-                            Sobre Mim
+                            {t("aboutMe")}
                         </a>
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
                             href="#Projetos"
                         >
-                            Projetos
+                            {t("projects")}
                         </a>
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
@@ -90,7 +92,7 @@ export function Header() {
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
                             href="#Contato"
                         >
-                            Contato
+                            {t("contact")}
                         </a>
                     </nav>
                 </div>

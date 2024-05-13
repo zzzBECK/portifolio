@@ -1,4 +1,3 @@
-import { projectsData } from "@/mock/projectsData";
 import { GitProject } from "@/types/git-project";
 import Autoplay from "embla-carousel-autoplay";
 import { PackageOpen } from "lucide-react";
@@ -15,6 +14,7 @@ import {
     CarouselPrevious,
 } from "../ui/carousel";
 import { useTranslation } from "react-i18next";
+import { useGetData } from "./hook/getData";
 
 const url = "https://api.github.com/users/zzzBECK/repos";
 
@@ -23,6 +23,8 @@ export function Projects() {
     const [projects, setProject] = useState<GitProject[]>();
     const [isLoading, setLoading] = useState(true);
     const { t } = useTranslation();
+
+    const projectsData = useGetData();
 
     const fetchRepositories = async () => {
         setLoading(true);
