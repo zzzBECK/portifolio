@@ -25,5 +25,8 @@
     }
   },
   "repository": "Repository",
-  "welcome": "Welcome!"
+  "welcome": "Welcome!",
+  "copiedEmail": "Copied email!",
+  "errorCopying": "Error copying email!",
+  "close": "Close"
 }

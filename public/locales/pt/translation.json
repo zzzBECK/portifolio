@@ -2,7 +2,7 @@
   "aboutMe": "Sobre mim",
   "academicProject": "Projeto Acadêmico",
   "allRepositories": "Todos os repositórios",
-  "contact": "Contaco",
+  "contact": "Contato",
   "freelanceProject": "Projeto Freelance",
   "mainProjects": "Projetos principais",
   "projects": "Projetos",
@@ -25,5 +25,8 @@
     }
   },
   "repository": "Repositório",
-  "welcome": "Bem vindo!"
+  "welcome": "Bem vindo!",
+  "copiedEmail": "Email copiado!",
+  "errorCopying": "Erro ao copiar e-mail!",
+  "close": "Fechar"
 }

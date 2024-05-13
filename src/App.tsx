@@ -5,6 +5,7 @@ import { Introduction } from "./components/Introduction/introduction";
 import { ParticleLight } from "./components/Particles/particleLight";
 import { Projects } from "./components/Projects/projects";
 import { ThemeProvider } from "./components/theme-provider";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Projects />
         <Contact />
         <ParticleLight />
+        <Toaster />
       </main>
     </ThemeProvider>
   );
