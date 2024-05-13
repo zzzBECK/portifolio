@@ -2,7 +2,7 @@ import { BrazilFlag } from "@/assets/brazilFlag";
 import { UsaFlag } from "@/assets/usaFlag";
 import i18next from "i18next";
 import { LucideLinkedin } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaGithub } from "react-icons/fa";
 import { ModeToggle } from "../mode-toggle";
@@ -34,11 +34,29 @@ export function Header() {
         i18next.changeLanguage(lang);
     };
 
+    const scrollToComponent = useCallback((id: string) => {
+        const element = document.getElementById(id);
+        const header = document.querySelector('header');
+
+        if (element && header) {
+            const headerOffset = header.clientHeight;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 50;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            console.error('Element or header not found:', { element, header });
+        }
+    }, []);
+
     return (
         <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-fit">
             <div className="container flex h-14 max-w-screen-2xl items-center">
                 <div className="mr-4 hidden md:flex">
-                    <a className="mr-6 flex items-center space-x-2" href="/">
+                    <a className="mr-6 flex items-center space-x-2" onClick={() => scrollToComponent('Introducao')}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 256 256"
@@ -73,25 +91,25 @@ export function Header() {
                     <nav className="flex items-center gap-4 text-sm lg:gap-6">
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
-                            href="#Sobre"
+                            onClick={() => scrollToComponent('Sobre')}
                         >
                             {t("aboutMe")}
                         </a>
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
-                            href="#Projetos"
+                            onClick={() => scrollToComponent('Projetos')}
                         >
                             {t("projects")}
                         </a>
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
-                            href="#Conhecimentos"
+                            onClick={() => scrollToComponent('Conhecimentos')}
                         >
                             {t("skills")}
                         </a>
                         <a
                             className="transition-colors hover:text-foreground/80 text-foreground/60"
-                            href="#Contato"
+                            onClick={() => scrollToComponent('Contato')}
                         >
                             {t("contact")}
                         </a>

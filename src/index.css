@@ -72,7 +72,14 @@
     box-sizing: border-box;
   }
 
-  html,
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
   body {
     @apply overflow-x-hidden;
   }
