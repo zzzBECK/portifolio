@@ -32,7 +32,7 @@ export function Contact() {
             });
             setToastDescription(undefined);
         }
-    }, [toastDescription]);
+    }, [t, toastDescription]);
 
     return (
         <section
