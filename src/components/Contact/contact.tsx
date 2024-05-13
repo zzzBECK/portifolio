@@ -44,7 +44,7 @@ export function Contact() {
                     <GiVibratingSmartphone size={50} />
                     {t("contact")}
                 </Badge>
-                <div className="flex flex-col md:flex-row w-full justify-end gap-6 lg:gap-10">
+                <div className="flex flex-col md:flex-row w-full justify-end gap-6">
                     <Button
                         className="w-full md:min-w-2/5 h-full text-lg md:text-2xl min-h-[84px] items-center flex"
                         variant="secondary"
